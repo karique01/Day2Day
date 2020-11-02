@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".activities.RegisterPacienteActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbarConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/topRoundView"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginStart="-100dp"
+            android:layout_marginEnd="-100dp"
+            android:background="@drawable/arc"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="@dimen/big_margin"
+            android:indeterminate="true"
+            android:theme="@style/ProgressBarStyleWhite"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/toolbarTitleTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/toolbarTitleTextView" />
+
+        <TextView
+            android:id="@+id/toolbarTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/big_margin"
+            android:text="@string/registro_de_paciente"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/backAppCompatImageButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/backAppCompatImageButton"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:tint="@android:color/white"
+            app:srcCompat="@drawable/ic_close"
+            style="?android:attr/borderlessButtonStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/toolbarTitleTextView"
+            app:layout_constraintBottom_toBottomOf="@id/toolbarTitleTextView"
+            android:visibility="visible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/especialistasRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginStart="@dimen/big_margin"
+        android:layout_marginEnd="@dimen/big_margin"
+        app:layout_constraintTop_toBottomOf="@id/toolbarConstraintLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/messageConstraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/especialistasRecyclerView"
+        app:layout_constraintEnd_toEndOf="@id/especialistasRecyclerView"
+        app:layout_constraintTop_toTopOf="@id/especialistasRecyclerView"
+        app:layout_constraintBottom_toBottomOf="@id/especialistasRecyclerView"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/messageTextView"
+            android:text="@string/no_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/datosPacienteScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbarFadeDuration="100000"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/default_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/especialistasRecyclerView"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.libizo.CustomEditText
+                android:id="@+id/nombreCustomEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:drawableStart="@drawable/ic_person"
+                android:hint="@string/nombre"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:libIZO_setBackgroundColor="@android:color/white"
+                app:libIZO_setBorderColor="@android:color/darker_gray"
+                app:libIZO_setBorderView="true"
+                app:libIZO_setCornerRadius="@dimen/default_margin" />
+
+            <com.libizo.CustomEditText
+                android:id="@+id/apellidosCustomEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:drawableStart="@drawable/ic_person"
+                android:hint="@string/apellidos"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nombreCustomEditText"
+                app:libIZO_setBackgroundColor="@android:color/white"
+                app:libIZO_setBorderColor="@android:color/darker_gray"
+                app:libIZO_setBorderView="true"
+                app:libIZO_setCornerRadius="@dimen/default_margin" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tipoDocumentoCardView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorAccent"
+                app:cardCornerRadius="@dimen/default_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/apellidosCustomEditText">
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/tipoDocumentoMaterialSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    app:ms_arrow_tint="@android:color/white"
+                    app:ms_background_color="@color/colorAccent"
+                    app:ms_text_color="@android:color/white"  />
+            </androidx.cardview.widget.CardView>
+
+            <com.libizo.CustomEditText
+                android:id="@+id/numeroDocumentoEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:drawableStart="@drawable/ic_dni"
+                android:hint="@string/numero_de_documento_de_identidad"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:maxLength="8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tipoDocumentoCardView"
+                app:libIZO_setBackgroundColor="@android:color/white"
+                app:libIZO_setBorderColor="@android:color/darker_gray"
+                app:libIZO_setBorderView="true"
+                app:libIZO_setCornerRadius="@dimen/default_margin" />
+
+            <com.libizo.CustomEditText
+                android:id="@+id/fechaDeNacimientoCustomEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:drawableStart="@drawable/ic_today"
+                android:hint="@string/fecha_de_nacimiento"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/numeroDocumentoEditText"
+                app:libIZO_setBackgroundColor="@android:color/white"
+                app:libIZO_setBorderColor="@android:color/darker_gray"
+                app:libIZO_setBorderView="true"
+                app:libIZO_setCornerRadius="@dimen/default_margin" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/nivelEstudiosCardView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorAccent"
+                app:cardCornerRadius="@dimen/default_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fechaDeNacimientoCustomEditText">
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/nivelEstudiosMaterialSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    app:ms_arrow_tint="@android:color/white"
+                    app:ms_background_color="@color/colorAccent"
+                    app:ms_text_color="@android:color/white"  />
+            </androidx.cardview.widget.CardView>
+
+            <com.libizo.CustomEditText
+                android:id="@+id/ocupacionCustomEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:drawableStart="@drawable/ic_ocupacion"
+                android:hint="@string/ocupacion"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nivelEstudiosCardView"
+                app:libIZO_setBackgroundColor="@android:color/white"
+                app:libIZO_setBorderColor="@android:color/darker_gray"
+                app:libIZO_setBorderView="true"
+                app:libIZO_setCornerRadius="@dimen/default_margin" />
+
+            <com.libizo.CustomEditText
+                android:id="@+id/telefonoCustomEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:drawableStart="@drawable/ic_telefono"
+                android:hint="@string/telefono"
+                android:maxLength="9"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ocupacionCustomEditText"
+                app:libIZO_setBackgroundColor="@android:color/white"
+                app:libIZO_setBorderColor="@android:color/darker_gray"
+                app:libIZO_setBorderView="true"
+                app:libIZO_setCornerRadius="@dimen/default_margin" />
+
+            <com.libizo.CustomEditText
+                android:id="@+id/emailCustomEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:drawableStart="@drawable/ic_email"
+                android:hint="@string/correo"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/telefonoCustomEditText"
+                app:libIZO_setBackgroundColor="@android:color/white"
+                app:libIZO_setBorderColor="@android:color/darker_gray"
+                app:libIZO_setBorderView="true"
+                app:libIZO_setCornerRadius="@dimen/default_margin" />
+
+            <com.libizo.CustomEditText
+                android:id="@+id/passwordCustomEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:drawableStart="@drawable/ic_lock"
+                android:hint="@string/password"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/emailCustomEditText"
+                app:libIZO_setBackgroundColor="@android:color/white"
+                app:libIZO_setBorderColor="@android:color/darker_gray"
+                app:libIZO_setBorderView="true"
+                app:libIZO_setCornerRadius="@dimen/default_margin" />
+
+            <com.libizo.CustomEditText
+                android:id="@+id/direccionCustomEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:drawableStart="@drawable/ic_place"
+                android:hint="@string/direccion"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/passwordCustomEditText"
+                app:libIZO_setBackgroundColor="@android:color/white"
+                app:libIZO_setBorderColor="@android:color/darker_gray"
+                app:libIZO_setBorderView="true"
+                app:libIZO_setCornerRadius="@dimen/default_margin" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/departamentoCardView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorAccent"
+                app:cardCornerRadius="@dimen/default_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/direccionCustomEditText">
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/departamentoMaterialSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    app:ms_arrow_tint="@android:color/white"
+                    app:ms_background_color="@color/colorAccent"
+                    app:ms_text_color="@android:color/white"  />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/provinciaCardView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorAccent"
+                app:cardCornerRadius="@dimen/default_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/departamentoCardView">
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/provinciaMaterialSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    app:ms_arrow_tint="@android:color/white"
+                    app:ms_background_color="@color/colorAccent"
+                    app:ms_text_color="@android:color/white"  />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/distritoCardView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_big_big_margin"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorAccent"
+                app:cardCornerRadius="@dimen/default_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/provinciaCardView">
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/distritoMaterialSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    app:ms_arrow_tint="@android:color/white"
+                    app:ms_background_color="@color/colorAccent"
+                    app:ms_text_color="@android:color/white"  />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/registrarCardView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/big_big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorAccent"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@id/distritoCardView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+                <ProgressBar
+                    android:id="@+id/registrarProgressBar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:indeterminate="true"
+                    android:theme="@style/ProgressBarStyleWhite"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/registrarTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_marginTop="@dimen/big_margin"
+                    android:layout_marginBottom="@dimen/big_margin"
+                    android:text="@string/registrar"
+                    android:textColor="@android:color/white" />
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

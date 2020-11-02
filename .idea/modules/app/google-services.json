@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "447769789515",
+    "firebase_url": "https://day2day-81fd4.firebaseio.com",
+    "project_id": "day2day-81fd4",
+    "storage_bucket": "day2day-81fd4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447769789515:android:283150921320b3eff0f9ce",
+        "android_client_info": {
+          "package_name": "com.karique.work.dev.day2day"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447769789515-t9b62jjgc0et7hji4ke30p9g6i3ekn30.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.karique.work.dev.day2day",
+            "certificate_hash": "9b1cd4b649b9af43f1633f13d8cbd8becaae13bc"
+          }
+        },
+        {
+          "client_id": "447769789515-vipu6r47nt6i8d2kcurhmvo9i9g4b4bd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAINpE3oP25eT0D0sHfs7UPZO4dGB1DIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447769789515-vipu6r47nt6i8d2kcurhmvo9i9g4b4bd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

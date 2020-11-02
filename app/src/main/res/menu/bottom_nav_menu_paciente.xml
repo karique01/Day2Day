@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_paciente_mi_diario"
+        android:icon="@drawable/ic_diario"
+        android:title="@string/mi_diario" />
+    <item
+        android:id="@+id/navigation_paciente_tests"
+        android:icon="@drawable/ic_tests"
+        android:title="@string/tests" />
+    <item
+        android:id="@+id/navigation_paciente_mi_perfil"
+        android:icon="@drawable/ic_mi_perfil"
+        android:title="@string/mi_perfil" />
+
+</menu>
